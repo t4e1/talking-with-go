@@ -6,8 +6,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-var request struct { 
-	
+type request struct {
+	Prompt string
 }
 
 func main() {
@@ -24,9 +24,15 @@ func main() {
 
 func sendToLLM(c *gin.Context) {
 
-	fmt.Println(c.))
+	var req request
+
+	if err := c.ShouldBindJSON(&req); err != nil {
+		c.JSON(400, gin.H{"error ": "Invalid JSON"})
+		return
+	}
+
 	c.JSON(200, gin.H{
 		"message": "Hello",
 	})
-	fmt.Println("Communicate Success")
+	fmt.Println("Communicate Success : ", req.Prompt)
 }
