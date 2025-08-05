@@ -19,7 +19,7 @@
 <summary>PN002. 2025-Aug-3</summary>
 
 - Main function design 
-- Conversation function flow i expected
+- Conversation function flow which I expected
     - Client make a new conversation 
         - select conversation types(for practicing job interview, daily conversation, business conversation...)  
         - write client info(additional inforamtion for making an accurate prompting)

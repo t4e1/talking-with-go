@@ -20,7 +20,7 @@ type convoBasicInfo struct {
 }
 
 type request struct {
-	Prompt string
+	Prompt string `json: "prompt" binding: "required"`
 }
 
 func getConvoInfo(c *gin.Context) {
