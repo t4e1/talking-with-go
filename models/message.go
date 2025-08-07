@@ -1,8 +1,13 @@
-package model
+package models
 
-type ConvoInfo struct {
+type BasicInfo struct {
 	Type string `json:"type"`
 }
 
-type Message struct {
+type RequestMessage struct {
+	Message string `json:"message"`
+}
+
+type ResponseMessage struct {
+	Message string `json: "message"`
 }
