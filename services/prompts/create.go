@@ -6,19 +6,18 @@ func NewPromptCreateService() *PromptCreateService {
 	return &PromptCreateService{}
 }
 
-func (pc *PromptCreateService) BuildPromptMessage(convoType, role, message string) []string {
+func (pc *PromptCreateService) BuildPromptMessage(convoType, role, message, language string) []string {
 
 	return []string{
-		"You are participating in a conversation of the following type:",
+		"Using language: ",
+		language,
+		"\nYou are participating in a conversation of the following type:",
 		convoType,
-		"",
-		"Your role is:",
+		"\nYour role is: ",
 		role,
-		"",
-		"The client's message is:",
+		"\nThe client's message is: ",
 		message,
-		"",
-		"Instructions:",
+		"\nInstructions: ",
 		"1. Respond appropriately to the client's message.",
 		"2. Summarize the current conversation at the end.",
 		"",

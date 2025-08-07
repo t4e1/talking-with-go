@@ -31,3 +31,21 @@
 - The first struct should use enum type
     - return error when conversation type is diffrent from types I thought.  
 </details>
+
+<details>
+<summary>PN003. 2025-Aug-7</summary>
+
+- Created a prompt-generating function
+    - The function takes the conversation type, LLM's role, user's message, using language as parameters.
+- How can I preserve prompt history to maintain conversational context?
+    - #1. Store the entire conversation history in memory and include it in each prompt to the LLM.
+        - [ x ] Consumes too many tokens and becomes expensive.
+    - #2. **Use Redis as RAG**
+        - [ o ] Summarize the conversation and store the summary in Redis.
+        - When generating a prompt, include the summary in the message instead of the full history.
+- Should I keep the `req` field as part of the struct?
+    - Not necessary for now.
+        - Currently, the function only builds prompts using the client's message.
+        - If additional features like logging or message transformation are added later,
+then including a req field would be useful.
+</details>
