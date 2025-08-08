@@ -18,7 +18,6 @@ func NewAPIHandler(promptSvc *services.PromptService) *APIHandler {
 }
 
 func (h *APIHandler) Conversation(ctx *gin.Context) {
-
 	req := &models.RequestMessage{}
 
 	if err := ctx.ShouldBindJSON(&req); err != nil {

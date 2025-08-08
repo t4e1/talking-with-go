@@ -8,6 +8,6 @@ type RequestMessage struct {
 }
 
 type ResponseMessage struct {
-	Message string `json:"message"`
+	Message string `json: "message"`
 	// Should check LLM's response format
 }

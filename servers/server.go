@@ -11,14 +11,14 @@ type Server struct {
 	promptSvc *services.PromptService
 }
 
-func (s *Server) SetupRouters() *gin.Engine {
+func (s *Server) SetupRouters() {
 	routers := gin.Default()
 	apiHandler := handlers.NewAPIHandler(s.promptSvc)
 
 	// Setup route
 	routers.POST("/msgs", apiHandler.Conversation)
 
-	return routers
+	s.router = routers
 }
 
 func (s *Server) RunServer() {

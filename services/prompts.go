@@ -1,12 +1,12 @@
 package services
 
-import "github.com/t4e1/talking-with-go.git/models"
+import (
+	"strings"
+
+	"github.com/t4e1/talking-with-go.git/models"
+)
 
 type PromptService struct {
-}
-
-type BindingStruct struct {
-	Message string `json: "message"`
 }
 
 // NewPromptService creates a new PromptService at server startup
@@ -15,10 +15,9 @@ func NewPromptService() *PromptService {
 }
 
 // BuildPromptMessage returns a prompt which has basic information and message for conversation.
-func (pc *PromptService) BuildPromptMessage(infos *models.RequestMessage) []string {
+func (pc *PromptService) BuildPromptMessage(infos *models.RequestMessage) string {
 
-	return []string{
-		"Using language: ",
+	temp := []string{"Using language: ",
 		infos.Language,
 		"\nYou are participating in a conversation of the following type:",
 		infos.ConvoType,
@@ -32,13 +31,15 @@ func (pc *PromptService) BuildPromptMessage(infos *models.RequestMessage) []stri
 		"",
 		"Return the response using the following JSON format:",
 		"[response]: your answer",
-		"[summary]: summary of the entire conversation",
-	}
+		"[summary]: summary of the entire conversation"}
+
+	result := strings.Join(temp, "")
+	return result
 }
 
-func (pc *PromptService) BuildResponseMessage() *BindingStruct {
+func (pc *PromptService) BuildResponseMessage() *models.ResponseMessage {
 
-	return &BindingStruct{
-		Message: "Temp Testing Message",
+	return &models.ResponseMessage{
+		Message: "Test Response Message",
 	}
 }
