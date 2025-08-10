@@ -11,6 +11,7 @@ type Server struct {
 	promptSvc *services.PromptService
 }
 
+// SetupRouters makes new router and enrolls every handlers.
 func (s *Server) SetupRouters() {
 	routers := gin.Default()
 	apiHandler := handlers.NewAPIHandler(s.promptSvc)
@@ -21,6 +22,7 @@ func (s *Server) SetupRouters() {
 	s.router = routers
 }
 
+// Starting server
 func (s *Server) RunServer() {
 	s.router.Run(":10001")
 }
