@@ -1,9 +1,12 @@
-package repositories
+package services
 
 import (
+	"context"
+	"fmt"
 	"log"
 	"net/url"
 	"os"
+	"strings"
 
 	"github.com/joho/godotenv"
 	"github.com/ollama/ollama/api"
@@ -32,7 +35,28 @@ func NewOllamaConnector() (*OllamaConnector, error) {
 }
 
 func (ol *OllamaConnector) Messaging(message string) (string, error) {
-	ol.client, err := api.ClientFromEnvironment()
+
+	req := &api.GenerateRequest{
+		Model:  "", // Add Ollama model
+		Prompt: message,
+		Stream: new(bool),
+	}
+
+	ctx := context.Background()
+	var fullResp strings.Builder
+
+	respFunc := func(resp api.GenerateResponse) error {
+		fmt.Println(resp.Response)
+		fullResp.WriteString(resp.Response)
+		return nil
+	}
+
+	err := ol.client.Generate(ctx, req, respFunc)
+	if err != nil {
+		log.Fatal("Response error occured: ", err)
+	}
+
+	return fullResp.String(), nil
 }
 
 // type OpenAIConnector struct {

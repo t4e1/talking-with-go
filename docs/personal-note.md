@@ -49,3 +49,14 @@
         - If additional features like logging or message transformation are added later,
 then including a req field would be useful.
 </details>
+
+<details>
+<summary>PN004. 2025-Aug-13</summary>
+
+- Stream or not?
+    - How to response Http Request in streaming mode? 
+        - Is 1 request -> multi response possible?
+        - websocket or SSE? 
+    - Stream mode may not be necessary at this project
+        - Purpose of application: Conversation practice by usign LLM
+</details>
