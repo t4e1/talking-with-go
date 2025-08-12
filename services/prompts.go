@@ -37,6 +37,13 @@ func (pc *PromptService) BuildPromptMessage(infos *models.RequestMessage) string
 	return result
 }
 
+func (pc *PromptService) Conversation(prompt string) string {
+
+	// call llm connector
+
+	return ""
+}
+
 func (pc *PromptService) BuildResponseMessage() *models.ResponseMessage {
 
 	return &models.ResponseMessage{
