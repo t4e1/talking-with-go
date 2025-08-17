@@ -1,9 +1,9 @@
-package servers
+package server
 
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/t4e1/talking-with-go.git/handlers"
-	"github.com/t4e1/talking-with-go.git/services"
+	services "github.com/t4e1/talking-with-go.git/service"
 )
 
 type Server struct {

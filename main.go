@@ -3,19 +3,19 @@ package main
 import (
 	"log"
 
-	"github.com/t4e1/talking-with-go.git/servers"
-	"github.com/t4e1/talking-with-go.git/services"
+	"github.com/t4e1/talking-with-go.git/server"
+	"github.com/t4e1/talking-with-go.git/service"
 )
 
 func main() {
 	// Initialize Services
-	services, err := services.InitServices()
-	if err != nil || services == nil {
+	service, err := service.InitServices()
+	if err != nil || service == nil {
 		log.Fatalf("Failed to initialize services: %v", err)
 	}
 
 	// Setup Routers
-	srv := &servers.Server{}
+	srv := &server.Server{}
 	srv.SetupRouters()
 
 	// Start server

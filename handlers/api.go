@@ -3,15 +3,15 @@ package handlers
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/t4e1/talking-with-go.git/models"
-	"github.com/t4e1/talking-with-go.git/services"
+	"github.com/t4e1/talking-with-go.git/service"
 )
 
 // APIHandler handles all API endpoints
 type APIHandler struct {
-	promptSvc *services.PromptService
+	promptSvc *service.PromptService
 }
 
-func NewAPIHandler(promptSvc *services.PromptService) *APIHandler {
+func NewAPIHandler(promptSvc *service.PromptService) *APIHandler {
 	return &APIHandler{
 		promptSvc: promptSvc,
 	}

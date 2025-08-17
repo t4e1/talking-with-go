@@ -1,4 +1,4 @@
-package services
+package service
 
 type Services struct {
 	Prompt *PromptService
