@@ -33,5 +33,5 @@ func (h *APIHandler) Conversation(ctx *gin.Context) {
 	resp := h.promptSvc.BuildResponseMessage()
 
 	// create a response to client
-	ctx.JSON(200, resp)
+	ctx.JSON(200, "Response Message: "+resp.Message)
 }
