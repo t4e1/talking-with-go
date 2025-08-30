@@ -59,6 +59,8 @@ func (ol *OllamaConnector) Messaging(message string) (string, error) {
 	return fullResp.String(), nil
 }
 
+// add gemini api
+
 // type OpenAIConnector struct {
 // 	client *openai.Client
 // }
