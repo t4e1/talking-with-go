@@ -60,3 +60,10 @@ then including a req field would be useful.
     - Stream mode may not be necessary at this project
         - Purpose of application: Conversation practice by usign LLM
 </details>
+
+<summary>PN005. 2025-SEP-06</summary>
+
+- Main function change
+    - Input prompt(for jov interview) -> evaluate & edit -> return
+    - Add storage funtion for idiomatic expressions and vocabulary
+</details>
